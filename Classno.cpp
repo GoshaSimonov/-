@@ -72,16 +72,64 @@ class Vampire: public Undead{
         using Undead::Undead;
         Vampire(){ info = info + " Not like a Patinson";hp = 300;}
 };
+
+
+class Being: public Unit{
+    private:
+        bool live = true;
+        u32 years_of_life = 50;
+        //u32 age = 0; у всех существ есть возраст, и у живих, и у не живих
+    public:
+        using Unit::Unit;
+        Being(){ info = info + " being;";}
+        //std::string Info() override {return info();}
+        
+};
+
+class Humanoid: public Being{
+    private:
+
+    public:
+        using Being::Being;
+        Humanoid(){ info = info + " humanoid;";}
+        //std::string Info() override {return info();}
+};
+
+class Human: public Humanoid{
+    private:
+        u32 years_of_life = 80;
+    public:
+        using Humanoid::Humanoid;
+        Human(){ info = info + " simple human"; hp = 200;}
+};
+class Krasnolud: public Humanoid{
+    private:
+        u32 years_of_life = 100;
+    public:
+        using Humanoid::Humanoid;
+        Krasnolud(){ info = info + " Krasnolud (Dwarf)"; hp = 150;}
+};
+class Elf: public Humanoid{
+    private:
+        u32 years_of_life = 1000;
+    public:
+        using Humanoid::Humanoid;
+        Elf(){ info = info + " Elf"; hp = 300;}
+};
+
 int main()
 {
     Skeleton_dragon Bill;
     Undead Leha;
     Unit Bob;
-   Vampire Bun;
-   Skeleton Ron;
-   Lich Tim;
-   Dullahan Tor;
+    Vampire Bun;
+    Skeleton Ron;
+    Lich Tim;
+    Dullahan Tor;
+    Human Fin;
+    
     Tor.TakeDamage(10);
     Bill.TakeDamage(15);
     Ron.TakeDamage(50);
+    Fin.TakeDamage(5);
 }
