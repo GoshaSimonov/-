@@ -4,13 +4,15 @@ using u32 = uint32_t;
 class Unit
 {
     private:
+        u32 age;
         std::string name;
         bool live;
     public:
         u32 hp;
         std::string info;
-        Unit(): hp(0), name(" Unnamed"), live(true), info(" this is unit;") {}
+        Unit(): age(0), hp(0), name(" Unnamed"), live(true), info(" this is unit;") {}
         u32 GetHp () const {return hp;}
+        u32 GetAge () const {return age;}
         std::string Get_name() const {return name;}
         bool Status () const {return live;}
         virtual std::string Info() {return info;}
