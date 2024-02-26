@@ -34,7 +34,7 @@ class Undead: public Unit{
     public:
         using Unit::Unit;
         Undead(){ info = info + " undead;";}
-        std::string Info() override {return (info);}
+        //std::string Info() override {return (info);}
         
 };
 class Skeleton_dragon: public Undead{
@@ -78,7 +78,6 @@ class Being: public Unit{
     private:
         bool live = true;
         u32 years_of_life = 50;
-        //u32 age = 0; у всех существ есть возраст, и у живих, и у не живих
     public:
         using Unit::Unit;
         Being(){ info = info + " being;";}
@@ -92,7 +91,6 @@ class Humanoid: public Being{
     public:
         using Being::Being;
         Humanoid(){ info = info + " humanoid;";}
-        //std::string Info() override {return info();}
 };
 
 class Human: public Humanoid{
